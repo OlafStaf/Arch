@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.itomych.arch.model.usecase.GetUserAuthStateUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -16,11 +17,12 @@ class SplashViewModel @Inject constructor(private val useCase: GetUserAuthStateU
 
     fun getState(): StateFlow<ViewStates> {
         viewModelScope.launch {
-            val state = when (val result = useCase("stub", "stub", "stub")) {
-                is GetUserAuthStateUseCase.AuthState.Authorized -> ViewStates.Authorized
-                GetUserAuthStateUseCase.AuthState.NotAuthorized -> ViewStates.Unauthorized
-            }
-            stateFlow.emit(state)
+//            val state = when (val result = useCase("stub", "stub", "stub")) {
+//                is GetUserAuthStateUseCase.AuthState.Authorized -> ViewStates.Authorized
+//                GetUserAuthStateUseCase.AuthState.NotAuthorized -> ViewStates.Unauthorized
+//            }
+            delay(3000)
+            stateFlow.emit(ViewStates.Unauthorized)
         }
         return stateFlow
     }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/graph_root"
+    app:startDestination="@id/flow_root_splash_fragment">
+
+    <fragment
+        android:id="@+id/flow_root_splash_fragment"
+        android:name="com.itomych.arch.view.splash.SplashFlowFragment" />
+
+    <fragment
+        android:id="@+id/flow_root_auth"
+        android:name="com.itomych.arch.view.auth.AuthFlowFragment" />
+
+    <action
+        android:id="@+id/start_flow_auth"
+        app:destination="@id/flow_root_auth"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/graph_root"/>
+
+</navigation>

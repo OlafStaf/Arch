@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/graph_auth"
+    app:startDestination="@id/fragment_auth_main">
+
+    <fragment
+        android:id="@+id/fragment_auth_main"
+        android:name="com.itomych.arch.view.auth.main.AuthChildFragment" />
+
+    <fragment
+        android:id="@+id/fragment_auth_login"
+        android:name="com.itomych.arch.view.auth.login.LoginChildFragment"
+        />
+
+    <fragment
+        android:id="@+id/fragment_auth_signup"
+        android:name="com.itomych.arch.view.auth.signup.SignUpChildFragment" />
+
+    <action
+        android:id="@+id/open_login"
+        app:destination="@id/fragment_auth_login"
+        app:popUpTo="@id/fragment_auth_main"/>
+
+    <action
+        android:id="@+id/open_signup"
+        app:destination="@id/fragment_auth_signup" />
+
+</navigation>
